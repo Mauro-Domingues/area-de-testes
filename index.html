@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <title>Ambiente de testes</title>
+    </head>
+    <body>
+
+        <h1 style="color: #a0d;">Autenticar usuário</h1>
+
+        <form id="form">
+            <h1>Login</h1>
+            <label for="emailLogin">Email: </label>
+            <input type="email" id="emailLogin" name="emailLogin" placeholder="Insira o email" required>
+            <label for="passwordLogin">Senha: </label>
+            <input type="text" id="passwordLogin" name="passwordLogin" placeholder="Insira a senha" required>
+            <button type="button" id="authUser">Enviar</button>
+            <label for="token">Seu token é: <br>(Deixe ele aqui)</label>
+            <textarea id="token" name="token" placeholder="token de autenticação" rows="6"></textarea>
+        </form>
+
+        <h1 style="color: #a0d;">Criar elementos</h1>
+
+        <form id="form">
+            <h1>Cadastrar usuário</h1>
+            <label for="userName">Nome: </label>
+            <input type="text" id="userName" name="userName" placeholder="Insira seu nome" required>
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" placeholder="Insira o email" required>
+            <label for="password">Senha: </label>
+            <input type="text" id="password" name="password" placeholder="Insira a senha" required>
+            <button type="button" id="sendUser">Enviar</button>
+        </form>
+        
+        <form id="form">
+            <h1>Criar Evento</h1>
+            <label for="eventName">Título: </label>
+            <input type="text" id="eventName" name="eventName" placeholder="Nome do evento" required>
+            <label for="description">Descrição: </label>
+            <textarea id="description" name="description" placeholder="Descreva o evento" required></textarea>
+            <label for="image">Imagem: </label>
+            <input type="text" id="image" name="image" value="Imagem.png" placeholder="Não disponível ainda, insira qualquer coisa ou deixe vazio">
+            <label for="data">Data: </label>
+            <input type="date" id="data" name="data" placeholder="Insira a data" required>
+            <label for="place">Endereço: </label>
+            <input type="text" id="place" name="place" placeholder="Digite um local" required>
+            <label for="place">Coordenadas: </label>
+            <input type="text" id="coordinates" name="coordinates" placeholder="Insira apenas números" required>
+            <label for="important_info">Informações importantes: </label>
+            <textarea id="important_info" name="important_info" placeholder="Informações importantes" required></textarea>
+            <label for="map">Mapa: </label>
+            <input type="text" id="map" name="map" value="Mapa" placeholder="Não disponível ainda, insira qualquer coisa ou deixe vazio">
+            <button type="button" id="sendEvent">Enviar</button>
+        </form>
+
+        <form id="form">
+            <h1>Gerar ingresso</h1>
+            <label for="id">id: </label>
+            <input type="text" id="id" name="id" placeholder="ID do evento" required>
+            <label for="code">Código: </label>
+            <textarea id="code" name="code" placeholder="Insira o código do bilhete" required></textarea>
+            <label for="options">Área</label>
+            <select name="area" id="area">
+                <option selected>Pista</option>
+                <option>Vip</option>
+                <option>Camarote</option>
+            </select>
+            <button type="button" id="sendTicket">Enviar</button>
+        </form>
+
+        <h1 style="color: #a0d;">Buscar elementos</h1>
+
+        <form id="form">
+            <h1>Buscar todos os eventos</h1>
+            <button type="button" id="trackEvents">Enviar</button>
+        </form>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Data</th>
+                    <th>Descrição</th>
+                    <th>Imagem</th>
+                    <th>Local</th>
+                    <th>Coordenadas</th>
+                    <th>Informações</th>
+                    <th>Map</th>
+                </tr>
+            </thead>
+            <tbody id="allEvents">
+            </tbody>
+        </table>
+
+        <form id="form">
+            <h1>Buscar evento pelo id</h1>
+            <label for="trackEventId">id do evento: </label>
+            <input type="text" id="trackEventId" name="trackEventId" placeholder="ID do evento" required>
+            <button type="button" id="trackEvent">Enviar</button>
+        </form>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Data</th>
+                    <th>Descrição</th>
+                    <th>Imagem</th>
+                    <th>Local</th>
+                    <th>Coordenadas</th>
+                    <th>Informações</th>
+                    <th>Map</th>
+                </tr>
+            </thead>
+            <tbody id="eventById">
+            </tbody>
+        </table>
+
+        <script src="./script.js"></script>
+    </body>
+</html>
