@@ -26,12 +26,28 @@ form{
     margin: 40px 0;
     gap: 15px;
     border: 2px dotted #000;
+    box-shadow: 2px 2px 5px #000;
 }
+
+#hidden{
+    display: none;
+    position: fixed;
+    background-color: #eee;
+    color: rgb(26, 5, 32);
+    border: 4px  double #a0d;
+    top: 20%;
+}
+
+#message{
+    color: #a0d;
+}
+
 form h1{
     grid-column-start: 1;
     grid-column-end: 3;
     text-align: center;
 }
+
 button{
     grid-column-start: 1;
     grid-column-end: 3;

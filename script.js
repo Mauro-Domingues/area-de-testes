@@ -1,16 +1,25 @@
 let url = "https://teste-backend-node.herokuapp.com/"
 const setUrl = document.getElementById("url")
 const token = document.getElementById("token")  
+const hidden = document.getElementById("hidden")  
+let message = document.getElementById("message")
 
 setUrl.addEventListener("change", () => {
     url = setUrl.value
 })
 
+function pop(){
+    hidden.style.display = "grid"
+    setTimeout(() => {
+        hidden.style.display = "none"
+    }, 2500)
+}
+
 // Autenticar
 
 document.getElementById("authUser").addEventListener("click", async() => {
     const emailLogin = document.getElementById("emailLogin")
-    const passwordLogin = document.getElementById("passwordLogin")  
+    const passwordLogin = document.getElementById("passwordLogin")
     let userData = {
         email: emailLogin.value,
         password: passwordLogin.value
@@ -24,6 +33,8 @@ document.getElementById("authUser").addEventListener("click", async() => {
             token.value = data.Token
         })
     )
+    message.innerHTML = "autenticar usuário"
+    pop()
 })
 
 // Criar
@@ -40,6 +51,8 @@ document.getElementById("sendUser").addEventListener("click", async() => {
         headers: {'Content-Type': 'application/json', 'Authorization': `${token.value}`},
         body: JSON.stringify(userData)
     })
+    message.innerHTML = "criar usuário"
+    pop()
 })
 
 document.getElementById("sendEvent").addEventListener("click", async() => {
@@ -66,6 +79,8 @@ document.getElementById("sendEvent").addEventListener("click", async() => {
         headers: {'Content-Type': 'application/json', 'Authorization': `${token.value}`},
         body: JSON.stringify(eventData)
     })
+    message.innerHTML = "criar evento"
+    pop()
 })
 
 document.getElementById("sendTicket").addEventListener("click", async() => {
@@ -82,6 +97,8 @@ document.getElementById("sendTicket").addEventListener("click", async() => {
         headers: {'Content-Type': 'application/json', 'Authorization': `${token.value}`},
         body: JSON.stringify(ticketData)
     })
+    message.innerHTML = "gerar bilhete"
+    pop()
 })
 
 // Buscar
@@ -97,6 +114,8 @@ document.getElementById("trackUsers").addEventListener("click", async() => {
                         </tr>`
         return accumulator
     },""))
+    message.innerHTML = "buscar todos os usuários"
+    pop()
 })
 
 document.getElementById("trackUserById").addEventListener("click", async() => {
@@ -111,6 +130,8 @@ document.getElementById("trackUserById").addEventListener("click", async() => {
                         </tr>`
         return accumulator
     },""))
+    message.innerHTML = `buscar usuário com o id ${trackUserId.value}`
+    pop()
 })
 
 document.getElementById("trackEvents").addEventListener("click", async() => {
@@ -136,6 +157,8 @@ document.getElementById("trackEvents").addEventListener("click", async() => {
                         </tr>`
         return accumulator
     },""))
+    message.innerHTML = "buscar todos os eventos"
+    pop()
 })
 
 document.getElementById("trackEvent").addEventListener("click", async() => {
@@ -162,6 +185,8 @@ document.getElementById("trackEvent").addEventListener("click", async() => {
                         </tr>`
         return accumulator
     },""))
+    message.innerHTML = `buscar evento com o id ${trackEventId.value}`
+    pop()
 }) 
 
 document.getElementById("trackAllTickets").addEventListener("click", async() => {
@@ -178,6 +203,8 @@ document.getElementById("trackAllTickets").addEventListener("click", async() => 
                         </tr>`
         return accumulator
     },""))
+    message.innerHTML = "buscar todos os ingressos"
+    pop()
 })
 
 document.getElementById("trackTickets").addEventListener("click", async() => {
@@ -196,6 +223,8 @@ document.getElementById("trackTickets").addEventListener("click", async() => {
                         </tr>`
         return accumulator
     },""))
+    message.innerHTML = `buscar ingresso do evento com id ${trackTicketId.value}`
+    pop()
 })
 
 document.getElementById("trackTicketById-btn").addEventListener("click", async() => {
@@ -214,6 +243,8 @@ document.getElementById("trackTicketById-btn").addEventListener("click", async()
                         </tr>`
         return accumulator
     },""))
+    message.innerHTML = `buscar ingresso com o id ${trackTicketById.value}`
+    pop()
 })
 
 // Editar
@@ -229,6 +260,8 @@ document.getElementById("updateUser").addEventListener("click", async() => {
         headers: {'Content-Type': 'application/json', 'Authorization': `${token.value}`},
         body: JSON.stringify(userData)
     })
+    message.innerHTML = "alterar a senha"
+    pop()
 })
 
 document.getElementById("updateEvent").addEventListener("click", async() => {
@@ -256,6 +289,8 @@ document.getElementById("updateEvent").addEventListener("click", async() => {
         headers: {'Content-Type': 'application/json', 'Authorization': `${token.value}`},
         body: JSON.stringify(eventData)
     })
+    message.innerHTML = "editar evento"
+    pop()
 })
 
 document.getElementById("updatedTicket").addEventListener("click", async() => {
@@ -269,6 +304,8 @@ document.getElementById("updatedTicket").addEventListener("click", async() => {
         headers: {'Content-Type': 'application/json', 'Authorization': `${token.value}`},
         body: JSON.stringify(ticketData)
     })
+    message.innerHTML = "editar área ingresso"
+    pop()
 })
 
 // Deletar
@@ -279,6 +316,8 @@ document.getElementById("deleteUser").addEventListener("click", async() => {
         method: 'DELETE',
         headers: {'Authorization': `${token.value}`}
     })
+    message.innerHTML = "deletar usuário"
+    pop()
 })
 
 document.getElementById("deleteEvent").addEventListener("click", async() => {
@@ -287,6 +326,8 @@ document.getElementById("deleteEvent").addEventListener("click", async() => {
         method: 'DELETE',
         headers: {'Authorization': `${token.value}`}
     })
+    message.innerHTML = "deletar evento"
+    pop()
 })
 
 document.getElementById("deleteTicket").addEventListener("click", async() => {
@@ -295,4 +336,6 @@ document.getElementById("deleteTicket").addEventListener("click", async() => {
         method: 'DELETE',
         headers: {'Authorization': `${token.value}`}
     })
+    message.innerHTML = "deletar ingresso"
+    pop()
 })
