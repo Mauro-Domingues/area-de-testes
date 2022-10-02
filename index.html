@@ -1,327 +1,308 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./style.css">
-        <title>Ambiente de testes</title>
-    </head>
-    <body>
 
-        <h1 style="color: #a0d;">Área de testes</h1>
-        <h3>Seja bem vindo(a) a área de teste</h3>
-        <h4>A api está atualmente online em <a href="https://teste-backend-node.herokuapp.com/">teste-backend-node.herokuapp.com</a>
-            <br>mas tambem funciona localmente, basta abrir o console na pasta da API e digitar "npm start".<br>
-            É preferível usando "npm start" pois não sei se até lá o heroku vai ter aceitado minha requisição de deploy
-        </h4>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Ambiente de testes</title>
+</head>
 
-        <div class="form">
-            <label for="url">Por favor, selecione qual deseja usar </label>
-            <select name="url" id="url">
-                <option value="http://localhost:3000/" selected>Usar API localmente</option>
-                <option value="https://teste-backend-node.herokuapp.com/">Usar a API hospedada</option>
-            </select>
-        </div>
+<body>
+    <h1 style="color: #a0d;">Área de testes</h1>
+    <h3>Seja bem vindo(a) a área de teste</h3>
+    <h4>A api está atualmente online em <a href="https://teste-backend-node.herokuapp.com/">teste-backend-node.herokuapp.com</a><br>
+        mas tambem funciona localmente, basta abrir o console na pasta da API e digitar "npm start".
+    </h4>
+    <div class="form">
+        <label for="url" style="font-weight: bolder;">Por favor, selecione qual deseja usar </label>
+        <select name="url" id="url" style="font-weight: bolder;">
+            <option value="http://localhost:3000/">Usar API localmente</option>
+            <option value="https://teste-backend-node.herokuapp.com/" selected>Usar a API hospedada</option>
+        </select>
+    </div>
+    <h4>O banco de dados está atualmente online em <a
+            href="https://www.db4free.net/phpMyAdmin/">db4free.net/report_ticket_db</a>
+        <br>mas também funciona localmente, porém é necessário abrir o mysql 8.0 e digitar os seguintes <a
+            href="./mysql.txt" type="application/txt"> comandos</a>
+    </h4>
+    <hr>
+    <h1 style="color: #a0d;">Autenticar usuário</h1>
+    <form id="form">
+        <h1>Login</h1>
+        <label for="emailLogin">Email: </label>
+        <input type="email" id="emailLogin" name="emailLogin" value="admin@mail.com" placeholder="Insira o email"
+            required>
+        <label for="passwordLogin">Senha: </label>
+        <input type="text" id="passwordLogin" name="passwordLogin" value="12345" placeholder="Insira a senha" required>
+        <button type="button" id="authUser">Enviar</button>
+        <label for="token">Seu token é:</label>
+        <textarea id="token" name="token" placeholder="token de autenticação" rows="6"></textarea>
+    </form>
+    <hr>
+    <h1 style="color: #a0d;">Criar elementos</h1>
+    <form id="form">
+        <h1>Cadastrar usuário</h1>
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" placeholder="Insira o email" required>
+        <label for="password">Senha: </label>
+        <input type="text" id="password" name="password" placeholder="Insira a senha" required>
+        <button type="button" id="sendUser">Enviar</button>
+    </form>
+    <form id="form">
+        <h1>Criar Evento</h1>
+        <label for="eventName">Título: </label>
+        <input type="text" id="eventName" name="eventName" placeholder="Nome do evento" required>
+        <label for="description">Descrição: </label>
+        <textarea id="description" name="description" placeholder="Descreva o evento" required></textarea>
+        <label for="image">Imagem: </label>
+        <input type="text" id="image" name="image" value="Imagem.png"
+            placeholder="Não disponível ainda, insira qualquer coisa">
+        <label for="data">Data: </label>
+        <input type="date" id="data" name="data" placeholder="Insira a data" required>
+        <label for="place">Endereço: </label>
+        <input type="text" id="place" name="place" placeholder="Digite um local" required>
+        <label for="coordinates">Coordenadas: </label>
+        <input type="text" id="coordinates" name="coordinates" placeholder="Insira as coordenadas" required>
+        <label for="important_info">Informações importantes: </label>
+        <textarea id="important_info" name="important_info" placeholder="Informações importantes" required></textarea>
+        <label for="map">Mapa: </label>
+        <input type="text" id="map" name="map" value="Mapa" placeholder="Não disponível ainda, insira qualquer coisa">
+        <button type="button" id="sendEvent">Enviar</button>
+    </form>
+    <form id="form">
+        <h1>Gerar ingresso</h1>
+        <label for="id">id: </label>
+        <input type="text" id="id" name="id" placeholder="id do evento" required>
+        <label for="code">Código: </label>
+        <textarea id="code" name="code" placeholder="Insira o código do bilhete" required></textarea>
+        <label for="options">Área</label>
+        <select name="area" id="area">
+            <option selected>Pista</option>
+            <option>Vip</option>
+            <option>Camarote</option>
+        </select>
+        <button type="button" id="sendTicket">Enviar</button>
+    </form>
+    <hr>
+    <h1 style="color: #a0d;">Buscar elementos</h1>
+    <h2 style="color: #a0d;">Usuarios</h2>
+    <form id="form">
+        <h1>Buscar todos os usuarios</h1>
+        <button type="button" id="trackUsers">Enviar</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Senha</th>
+            </tr>
+        </thead>
+        <tbody id="allUsers">
+        </tbody>
+    </table>
+    <form id="form">
+        <h1>Buscar usuario pelo id</h1>
+        <label for="trackUserId">id do usuario: </label>
+        <input type="text" id="trackUserId" name="trackUserId" placeholder="id do usuario" required>
+        <button type="button" id="trackUserById">Enviar</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Senha</th>
+            </tr>
+        </thead>
+        <tbody id="userById">
+        </tbody>
+    </table>
+    <hr>
+    <h2 style="color: #a0d;">Eventos</h2>
+    <form id="form">
+        <h1>Buscar todos os eventos</h1>
+        <button type="button" id="trackEvents">Enviar</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Imagem</th>
+                <th>Local</th>
+                <th>Coordenadas</th>
+                <th>Informações</th>
+                <th>Map</th>
+            </tr>
+        </thead>
+        <tbody id="allEvents">
+        </tbody>
+    </table>
+    <form id="form">
+        <h1>Buscar evento pelo id</h1>
+        <label for="trackEventId">id do evento: </label>
+        <input type="text" id="trackEventId" name="trackEventId" placeholder="id do evento" required>
+        <button type="button" id="trackEvent">Enviar</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Imagem</th>
+                <th>Local</th>
+                <th>Coordenadas</th>
+                <th>Informações</th>
+                <th>Map</th>
+            </tr>
+        </thead>
+        <tbody id="eventById">
+        </tbody>
+    </table>
+    <hr>
+    <h2 style="color: #a0d;">Ingressos</h2>
+    <form id="form">
+        <h1>Buscar todos os ingressos</h1>
+        <button type="button" id="trackAllTickets">Enviar</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Evento</th>
+                <th>id do ingresso</th>
+                <th>Cod. de barra</th>
+                <th>Cod. QR</th>
+                <th>Preço</th>
+                <th>Área</th>
+                <th>Lote</th>
+            </tr>
+        </thead>
+        <tbody id="allTickets">
+        </tbody>
+    </table>
+    <form id="form">
+        <h1>Buscar ingressos de algum evento</h1>
+        <label for="trackTicketId">id do evento: </label>
+        <input type="text" id="trackTicketId" name="trackTicketId" placeholder="id do evento" required>
+        <button type="button" id="trackTickets">Enviar</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Evento</th>
+                <th>id do ingresso</th>
+                <th>Cod. de barra</th>
+                <th>Cod. QR</th>
+                <th>Preço</th>
+                <th>Área</th>
+                <th>Lote</th>
+            </tr>
+        </thead>
+        <tbody id="allTicketsEvent">
+        </tbody>
+    </table>
+    <form id="form">
+        <h1>Buscar ingressos pelo id</h1>
+        <label for="trackTicketId">id do Ingresso: </label>
+        <input type="text" id="trackTicketById" name="trackTicketById" placeholder="id do ingresso" required>
+        <button type="button" id="trackTicketById-btn">Enviar</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Evento</th>
+                <th>id do ingresso</th>
+                <th>Cod. de barra</th>
+                <th>Cod. QR</th>
+                <th>Preço</th>
+                <th>Área</th>
+                <th>Lote</th>
+            </tr>
+        </thead>
+        <tbody id="tableTicketByid">
+        </tbody>
+    </table>
+    <hr>
+    <h1 style="color: #a0d;">Editar elementos</h1>
+    <h2 style="color: #a0d;">Usuarios</h2>
+    <form id="form">
+        <h1>Esqueceu a senha?</h1>
+        <label for="putUserId">insira o seu id: </label>
+        <input type="text" id="putUserId" name="putUserId" placeholder="id do usuário" required>
+        <label for="newPass">nova senha: </label>
+        <input type="text" id="newPass" name="newPass" placeholder="insira a nova senha" required>
+        <button type="button" id="updateUser">Enviar</button>
+    </form>
+    <h2 style="color: #a0d;">Eventos</h2>
+    <form id="form">
+        <h1>Editar Evento</h1>
+        <label for="updateEventId">Id: </label>
+        <input type="text" id="updateEventId" name="updateEventId" placeholder="id do evento" required>
+        <label for="updateEventName">Título: </label>
+        <input type="text" id="updateEventName" name="updateEventName" placeholder="Nome do evento" required>
+        <label for="updateDescription">Descrição: </label>
+        <textarea id="updateDescription" name="updateDescription" placeholder="Descreva o evento" required></textarea>
+        <label for="updateImage">Imagem: </label>
+        <input type="text" id="updateImage" name="updateImage" placeholder="Não disponível ainda, insira qualquer coisa"
+            required>
+        <label for="updateData">Data: </label>
+        <input type="date" id="updateData" name="updateData">
+        <label for="updatePlace">Endereço: </label>
+        <input type="text" id="updatePlace" name="updatePlace" placeholder="Digite um local" required>
+        <label for="updateCoordinates">Coordenadas: </label>
+        <input type="text" id="updateCoordinates" name="updateCoordinates" placeholder="Insira as coordenadas" required>
+        <label for="updateImportant_info">Informações importantes: </label>
+        <textarea id="updateImportant_info" name="updateImportant_info" placeholder="Informações importantes"
+            required></textarea>
+        <label for="updateMap">Mapa: </label>
+        <input type="text" id="updateMap" name="updateMap" placeholder="Não disponível ainda, insira qualquer coisa"
+            required>
+        <button type="button" id="updateEvent">Enviar</button>
+    </form>
+    <h2 style="color: #a0d;">Ingressos</h2>
+    <form id="form">
+        <h1>Atualizar ingresso</h1>
+        <label for="getId">id do ingresso: </label>
+        <input type="text" id="getId" name="getId" placeholder="id do ingresso" required>
+        <label for="options">Área</label>
+        <select name="newArea" id="newArea">
+            <option selected>Pista</option>
+            <option>Vip</option>
+            <option>Camarote</option>
+        </select>
+        <button type="button" id="updatedTicket">Enviar</button>
+    </form>
+    <hr>
+    <h1 style="color: #a0d;">Deletar elementos</h1>
+    <h2 style="color: #a0d;">Usuarios</h2>
+    <form id="form">
+        <h1>Deletar usuario</h1>
+        <label for="deleteUserId">insira o seu id: </label>
+        <input type="text" id="deleteUserId" name="deleteUserId" placeholder="id do usuário" required>
+        <button type="button" id="deleteUser">Enviar</button>
+    </form>
+    <h2 style="color: #a0d;">Eventos</h2>
+    <form id="form">
+        <h1>Deletar Evento</h1>
+        <label for="deleteEventId">id do evento: </label>
+        <input type="text" id="deleteEventId" name="deleteEventId" placeholder="id do evento" required>
+        <button type="button" id="deleteEvent">Enviar</button>
+    </form>
+    <h2 style="color: #a0d;">Ingressos</h2>
+    <form id="form">
+        <h1>Deletar ingresso</h1>
+        <label for="deleteTicketId">id do ingresso: </label>
+        <input type="text" id="deleteTicketId" name="deleteTicketId" placeholder="id do ingresso" required>
+        <button type="button" id="deleteTicket">Enviar</button>
+    </form>
+    <script src="./script.js"></script>
+</body>
 
-        <h4>O banco de dados está atualmente online em <a href="https://www.db4free.net/phpMyAdmin/">db4free.net/report_ticket_db</a>
-            <br>mas também funciona localmente, porém é necessário abrir o mysql 8.0 e digitar os seguintes <a href="./mysql.txt" type="application/txt"> comandos</a>
-        </h4>
-        <hr>
-
-        <h1 style="color: #a0d;">Autenticar usuário</h1>
-
-        <form id="form">
-            <h1>Login</h1>
-            <label for="emailLogin">Email: </label>
-            <input type="email" id="emailLogin" name="emailLogin" value="admin@mail.com" placeholder="Insira o email" required>
-            <label for="passwordLogin">Senha: </label>
-            <input type="text" id="passwordLogin" name="passwordLogin" value="12345" placeholder="Insira a senha" required>
-            <button type="button" id="authUser">Enviar</button>
-            <label for="token">Seu token é:</label>
-            <textarea id="token" name="token" placeholder="token de autenticação" rows="6"></textarea>
-        </form>
-        <hr>
-        <h1 style="color: #a0d;">Criar elementos</h1>
-
-        <form id="form">
-            <h1>Cadastrar usuário</h1>
-            <label for="email">Email: </label>
-            <input type="email" id="email" name="email" placeholder="Insira o email" required>
-            <label for="password">Senha: </label>
-            <input type="text" id="password" name="password" placeholder="Insira a senha" required>
-            <button type="button" id="sendUser">Enviar</button>
-        </form>
-        
-        <form id="form">
-            <h1>Criar Evento</h1>
-            <label for="eventName">Título: </label>
-            <input type="text" id="eventName" name="eventName" placeholder="Nome do evento" required>
-            <label for="description">Descrição: </label>
-            <textarea id="description" name="description" placeholder="Descreva o evento" required></textarea>
-            <label for="image">Imagem: </label>
-            <input type="text" id="image" name="image" value="Imagem.png" placeholder="Não disponível ainda, insira qualquer coisa">
-            <label for="data">Data: </label>
-            <input type="date" id="data" name="data" placeholder="Insira a data" required>
-            <label for="place">Endereço: </label>
-            <input type="text" id="place" name="place" placeholder="Digite um local" required>
-            <label for="coordinates">Coordenadas: </label>
-            <input type="text" id="coordinates" name="coordinates" placeholder="Insira as coordenadas" required>
-            <label for="important_info">Informações importantes: </label>
-            <textarea id="important_info" name="important_info" placeholder="Informações importantes" required></textarea>
-            <label for="map">Mapa: </label>
-            <input type="text" id="map" name="map" value="Mapa" placeholder="Não disponível ainda, insira qualquer coisa">
-            <button type="button" id="sendEvent">Enviar</button>
-        </form>
-
-        <form id="form">
-            <h1>Gerar ingresso</h1>
-            <label for="id">id: </label>
-            <input type="text" id="id" name="id" placeholder="id do evento" required>
-            <label for="code">Código: </label>
-            <textarea id="code" name="code" placeholder="Insira o código do bilhete" required></textarea>
-            <label for="options">Área</label>
-            <select name="area" id="area">
-                <option selected>Pista</option>
-                <option>Vip</option>
-                <option>Camarote</option>
-            </select>
-            <button type="button" id="sendTicket">Enviar</button>
-        </form>
-        <hr>
-        <h1 style="color: #a0d;">Buscar elementos</h1>
-        <h2 style="color: #a0d;">Usuarios</h2>
-
-        <form id="form">
-            <h1>Buscar todos os usuarios</h1>
-            <button type="button" id="trackUsers">Enviar</button>
-        </form>
-
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Email</th>
-                    <th>Senha</th>
-                </tr>
-            </thead>
-            <tbody id="allUsers">
-            </tbody>
-        </table>
-
-        <form id="form">
-            <h1>Buscar usuario pelo id</h1>
-            <label for="trackUserId">id do usuario: </label>
-            <input type="text" id="trackUserId" name="trackUserId" placeholder="id do usuario" required>
-            <button type="button" id="trackUserById">Enviar</button>
-        </form>
-
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Email</th>
-                    <th>Senha</th>
-                </tr>
-            </thead>
-            <tbody id="userById">
-            </tbody>
-        </table>
-
-        <hr>
-        <h2 style="color: #a0d;">Eventos</h2>
-
-        <form id="form">
-            <h1>Buscar todos os eventos</h1>
-            <button type="button" id="trackEvents">Enviar</button>
-        </form>
-
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Data</th>
-                    <th>Descrição</th>
-                    <th>Imagem</th>
-                    <th>Local</th>
-                    <th>Coordenadas</th>
-                    <th>Informações</th>
-                    <th>Map</th>
-                </tr>
-            </thead>
-            <tbody id="allEvents">
-            </tbody>
-        </table>
-
-        <form id="form">
-            <h1>Buscar evento pelo id</h1>
-            <label for="trackEventId">id do evento: </label>
-            <input type="text" id="trackEventId" name="trackEventId" placeholder="id do evento" required>
-            <button type="button" id="trackEvent">Enviar</button>
-        </form>
-
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Data</th>
-                    <th>Descrição</th>
-                    <th>Imagem</th>
-                    <th>Local</th>
-                    <th>Coordenadas</th>
-                    <th>Informações</th>
-                    <th>Map</th>
-                </tr>
-            </thead>
-            <tbody id="eventById">
-            </tbody>
-        </table>
-        <hr>
-        <h2 style="color: #a0d;">Ingressos</h2>
-        <form id="form">
-            <h1>Buscar todos os ingressos</h1>
-            <button type="button" id="trackAllTickets">Enviar</button>
-        </form>
-
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Evento</th>
-                    <th>id do ingresso</th>
-                    <th>Cod. de barra</th>
-                    <th>Cod. QR</th>
-                    <th>Preço</th>
-                    <th>Área</th>
-                    <th>Lote</th>
-                </tr>
-            </thead>
-            <tbody id="allTickets">
-            </tbody>
-        </table>
-
-        <form id="form">
-            <h1>Buscar ingressos de algum evento</h1>
-            <label for="trackTicketId">id do evento: </label>
-            <input type="text" id="trackTicketId" name="trackTicketId" placeholder="id do evento" required>
-            <button type="button" id="trackTickets">Enviar</button>
-        </form>
-
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Evento</th>
-                    <th>id do ingresso</th>
-                    <th>Cod. de barra</th>
-                    <th>Cod. QR</th>
-                    <th>Preço</th>
-                    <th>Área</th>
-                    <th>Lote</th>
-                </tr>
-            </thead>
-            <tbody id="allTicketsEvent">
-            </tbody>
-        </table>
-
-        <form id="form">
-            <h1>Buscar ingressos pelo id</h1>
-            <label for="trackTicketId">id do Ingresso: </label>
-            <input type="text" id="trackTicketById" name="trackTicketById" placeholder="id do ingresso" required>
-            <button type="button" id="trackTicketById-btn">Enviar</button>
-        </form>
-
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Evento</th>
-                    <th>id do ingresso</th>
-                    <th>Cod. de barra</th>
-                    <th>Cod. QR</th>
-                    <th>Preço</th>
-                    <th>Área</th>
-                    <th>Lote</th>
-                </tr>
-            </thead>
-            <tbody id="tableTicketByid">
-            </tbody>
-        </table>
-        <hr>
-        <h1 style="color: #a0d;">Editar elementos</h1>
-        <h2 style="color: #a0d;">Usuarios</h2>
-        <form id="form">
-            <h1>Esqueceu a senha?</h1>
-            <label for="putUserId">insira o seu id: </label>
-            <input type="text" id="putUserId" name="putUserId" placeholder="id do usuário" required>
-            <label for="newPass">nova senha: </label>
-            <input type="text" id="newPass" name="newPass" placeholder="insira a nova senha" required>
-            <button type="button" id="updateUser">Enviar</button>
-        </form>
-
-        <h2 style="color: #a0d;">Eventos</h2>
-        <form id="form">
-            <h1>Editar Evento</h1>
-            <label for="updateEventId">Id: </label>
-            <input type="text" id="updateEventId" name="updateEventId" placeholder="id do evento" required>
-            <label for="updateEventName">Título: </label>
-            <input type="text" id="updateEventName" name="updateEventName" placeholder="Nome do evento" required>
-            <label for="updateDescription">Descrição: </label>
-            <textarea id="updateDescription" name="updateDescription" placeholder="Descreva o evento" required></textarea>
-            <label for="updateImage">Imagem: </label>
-            <input type="text" id="updateImage" name="updateImage" placeholder="Não disponível ainda, insira qualquer coisa" required>
-            <label for="updateData">Data: </label>
-            <input type="date" id="updateData" name="updateData">
-            <label for="updatePlace">Endereço: </label>
-            <input type="text" id="updatePlace" name="updatePlace" placeholder="Digite um local" required>
-            <label for="updateCoordinates">Coordenadas: </label>
-            <input type="text" id="updateCoordinates" name="updateCoordinates" placeholder="Insira as coordenadas" required>
-            <label for="updateImportant_info">Informações importantes: </label>
-            <textarea id="updateImportant_info" name="updateImportant_info" placeholder="Informações importantes" required></textarea>
-            <label for="updateMap">Mapa: </label>
-            <input type="text" id="updateMap" name="updateMap" placeholder="Não disponível ainda, insira qualquer coisa" required>
-            <button type="button" id="updateEvent">Enviar</button>
-        </form>
-
-        <h2 style="color: #a0d;">Ingressos</h2>
-        <form id="form">
-            <h1>Atualizar ingresso</h1>
-            <label for="getId">id do ingresso: </label>
-            <input type="text" id="getId" name="getId" placeholder="id do ingresso" required>
-            <label for="options">Área</label>
-            <select name="newArea" id="newArea">
-                <option selected>Pista</option>
-                <option>Vip</option>
-                <option>Camarote</option>
-            </select>
-            <button type="button" id="updatedTicket">Enviar</button>
-        </form>
-
-        <hr>
-
-        <h1 style="color: #a0d;">Deletar elementos</h1>
-        <h2 style="color: #a0d;">Usuarios</h2>
-        <form id="form">
-            <h1>Deletar usuario</h1>
-            <label for="deleteUserId">insira o seu id: </label>
-            <input type="text" id="deleteUserId" name="deleteUserId" placeholder="id do usuário" required>
-            <button type="button" id="deleteUser">Enviar</button>
-        </form>
-        <h2 style="color: #a0d;">Eventos</h2>
-        <form id="form">
-            <h1>Deletar Evento</h1>
-            <label for="deleteEventId">id do evento: </label>
-            <input type="text" id="deleteEventId" name="deleteEventId" placeholder="id do evento" required>
-            <button type="button" id="deleteEvent">Enviar</button>
-        </form>
-
-        <h2 style="color: #a0d;">Ingressos</h2>
-        <form id="form">
-            <h1>Deletar ingresso</h1>
-            <label for="deleteTicketId">id do ingresso: </label>
-            <input type="text" id="deleteTicketId" name="deleteTicketId" placeholder="id do ingresso" required>
-            <button type="button" id="deleteTicket">Enviar</button>
-        </form>
-
-        <script src="./script.js"></script>
-    </body>
 </html>

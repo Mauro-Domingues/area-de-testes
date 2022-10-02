@@ -1,4 +1,4 @@
-let url = "http://localhost:3000/"
+let url = "https://teste-backend-node.herokuapp.com/"
 const setUrl = document.getElementById("url")
 const token = document.getElementById("token")  
 
