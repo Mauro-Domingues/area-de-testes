@@ -9,6 +9,24 @@
     </head>
     <body>
 
+        <h1 style="color: #a0d;">Área de testes</h1>
+        <h3>Sejam bem vindos a área de teste</h3>
+        <h4>A api está atualmente online em <a href="https://teste-backend-node.herokuapp.com/">teste-backend-node.herokuapp.com</a>
+            <br>mas tambem funciona localmente, basta abrir o console na pasta da API e digitar "npm start"
+        </h4>
+
+        <div class="form">
+            <label for="url">Por favor, selecione qual deseja usar </label>
+            <select name="url" id="url">
+                <option value="http://localhost:3000/" selected>Usar API localmente</option>
+                <option value="https://teste-backend-node.herokuapp.com/">Usar a API hospedada</option>
+            </select>
+        </div>
+
+        <h4>O banco de dados está atualmente online em <a href="https://www.db4free.net/phpMyAdmin/">db4free.net/report_ticket_db</a>
+            <br>mas também funciona localmente, porém é necessário abrir o mysql 8.0 e digitar os seguintes <a href="./mysql.txt" type="application/txt"> comandos</a>
+        </h4>
+
         <h1 style="color: #a0d;">Autenticar usuário</h1>
 
         <form id="form">
@@ -242,23 +260,23 @@
         <form id="form">
             <h1>Editar Evento</h1>
             <label for="updateEventId">Id: </label>
-            <input type="text" id="updateEventId" name="updateEventId" placeholder="id do evento(obrigatório)" required>
+            <input type="text" id="updateEventId" name="updateEventId" placeholder="id do evento" required>
             <label for="updateEventName">Título: </label>
-            <input type="text" id="updateEventName" name="updateEventName" placeholder="Nome do evento(opcional)">
+            <input type="text" id="updateEventName" name="updateEventName" placeholder="Nome do evento" required>
             <label for="updateDescription">Descrição: </label>
-            <textarea id="updateDescription" name="updateDescription" placeholder="Descreva o evento(opcional)"></textarea>
+            <textarea id="updateDescription" name="updateDescription" placeholder="Descreva o evento" required></textarea>
             <label for="updateImage">Imagem: </label>
-            <input type="text" id="updateImage" name="updateImage" placeholder="Não disponível ainda, insira qualquer coisa(opcional)">
+            <input type="text" id="updateImage" name="updateImage" placeholder="Não disponível ainda, insira qualquer coisa" required>
             <label for="updateData">Data: </label>
             <input type="date" id="updateData" name="updateData">
             <label for="updatePlace">Endereço: </label>
-            <input type="text" id="updatePlace" name="updatePlace" placeholder="Digite um local(opcional)">
+            <input type="text" id="updatePlace" name="updatePlace" placeholder="Digite um local" required>
             <label for="updateCoordinates">Coordenadas: </label>
-            <input type="text" id="updateCoordinates" name="updateCoordinates" placeholder="Insira as coordenadas(opcional)">
+            <input type="text" id="updateCoordinates" name="updateCoordinates" placeholder="Insira as coordenadas" required>
             <label for="updateImportant_info">Informações importantes: </label>
-            <textarea id="updateImportant_info" name="updateImportant_info" placeholder="Informações importantes(opcional)"></textarea>
+            <textarea id="updateImportant_info" name="updateImportant_info" placeholder="Informações importantes" required></textarea>
             <label for="updateMap">Mapa: </label>
-            <input type="text" id="updateMap" name="updateMap" placeholder="Não disponível ainda, insira qualquer coisa(opcional)">
+            <input type="text" id="updateMap" name="updateMap" placeholder="Não disponível ainda, insira qualquer coisa" required>
             <button type="button" id="updateEvent">Enviar</button>
         </form>
 

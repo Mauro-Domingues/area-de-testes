@@ -1,4 +1,30 @@
 let url = "http://localhost:3000/"
+const setUrl = document.getElementById("url")
+const token = document.getElementById("token")  
+
+setUrl.addEventListener("change", () => {
+    url = setUrl.value
+})
+
+// Autenticar
+
+document.getElementById("authUser").addEventListener("click", async() => {
+    const emailLogin = document.getElementById("emailLogin")
+    const passwordLogin = document.getElementById("passwordLogin")  
+    let userData = {
+        email: emailLogin.value,
+        password: passwordLogin.value
+    }
+    await fetch(`${url}user/login`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(userData)
+    }).then(response => response.json()).then(data =>
+        data.map((data) => {
+            token.value = data.Token
+        })
+    )
+})
 
 // Criar
 
@@ -11,7 +37,7 @@ document.getElementById("sendUser").addEventListener("click", async() => {
     }
     await fetch(`${url}user`, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'Authorization': `${token.value}`},
         body: JSON.stringify(userData)
     })
 })
@@ -37,7 +63,7 @@ document.getElementById("sendEvent").addEventListener("click", async() => {
     }
     await fetch(`${url}event`, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'Authorization': `${token.value}`},
         body: JSON.stringify(eventData)
     })
 })
@@ -53,35 +79,16 @@ document.getElementById("sendTicket").addEventListener("click", async() => {
     }
     await fetch(`${url}ticket`, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'Authorization': `${token.value}`},
         body: JSON.stringify(ticketData)
     })
 })
 
 // Buscar
 
-document.getElementById("authUser").addEventListener("click", async() => {
-    const emailLogin = document.getElementById("emailLogin")
-    const passwordLogin = document.getElementById("passwordLogin")  
-    const token = document.getElementById("token")  
-    let userData = {
-        email: emailLogin.value,
-        password: passwordLogin.value
-    }
-    await fetch(`${url}user/login`, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(userData)
-    }).then(response => response.json()).then(data =>
-        data.map((data) => {
-            token.value = data.Token
-        })
-    )
-})
-
 document.getElementById("trackUsers").addEventListener("click", async() => {
-    await fetch(`${url}user`, {
-    }).then(response => response.json()).then(user =>
+    await fetch(`${url}user`, {headers: {'Authorization': `${token.value}`}})
+    .then(response => response.json()).then(user =>
     document.getElementById("allUsers").innerHTML = user.reduce((accumulator, user) => {
         accumulator += `<tr>
                         <td>${user.id}</td>
@@ -94,8 +101,8 @@ document.getElementById("trackUsers").addEventListener("click", async() => {
 
 document.getElementById("trackUserById").addEventListener("click", async() => {
     const trackUserId = document.getElementById("trackUserId")
-    await fetch(`${url}user/${trackUserId.value}`, {
-    }).then(response => response.json()).then(user =>
+    await fetch(`${url}user/${trackUserId.value}`, {headers: {'Authorization': `${token.value}`}})
+    .then(response => response.json()).then(user =>
     document.getElementById("userById").innerHTML = user.reduce((accumulator, user) => {
         accumulator += `<tr>
                         <td>${user.id}</td>
@@ -107,8 +114,8 @@ document.getElementById("trackUserById").addEventListener("click", async() => {
 })
 
 document.getElementById("trackEvents").addEventListener("click", async() => {
-    await fetch(`${url}event`, {
-    }).then(response => response.json()).then(event =>
+    await fetch(`${url}event`, {headers: {'Authorization': `${token.value}`}})
+    .then(response => response.json()).then(event =>
     document.getElementById("allEvents").innerHTML = event.reduce((accumulator, event) => {
         const data = new Date(Date.parse(event.data))
         let day = data.getDate()
@@ -133,8 +140,8 @@ document.getElementById("trackEvents").addEventListener("click", async() => {
 
 document.getElementById("trackEvent").addEventListener("click", async() => {
     const trackEventId = document.getElementById("trackEventId")
-    await fetch(`${url}event/${trackEventId.value}`, {
-    }).then(response => response.json()).then(event =>
+    await fetch(`${url}event/${trackEventId.value}`, {headers: {'Authorization': `${token.value}`}})
+    .then(response => response.json()).then(event =>
     document.getElementById("eventById").innerHTML = event.reduce((accumulator, event) => {
         const data = new Date(Date.parse(event.data))
         let day = data.getDate()
@@ -158,7 +165,7 @@ document.getElementById("trackEvent").addEventListener("click", async() => {
 }) 
 
 document.getElementById("trackAllTickets").addEventListener("click", async() => {
-    await fetch(`${url}ticket`).then(response => response.json()).then(ticket =>
+    await fetch(`${url}ticket`, {headers: {'Authorization': `${token.value}`}}).then(response => response.json()).then(ticket =>
     document.getElementById("allTickets").innerHTML = ticket.reduce((accumulator, ticket) => {
         accumulator += `<tr>
                         <th>${ticket.id}</th>
@@ -175,8 +182,8 @@ document.getElementById("trackAllTickets").addEventListener("click", async() => 
 
 document.getElementById("trackTickets").addEventListener("click", async() => {
     const trackTicketId = document.getElementById("trackTicketId")
-    await fetch(`${url}ticket/${trackTicketId.value}`, {
-    }).then(response => response.json()).then(ticket =>
+    await fetch(`${url}ticket/${trackTicketId.value}`, {headers: {'Authorization': `${token.value}`}})
+    .then(response => response.json()).then(ticket =>
     document.getElementById("allTicketsEvent").innerHTML = ticket.reduce((accumulator, ticket) => {
         accumulator += `<tr>
                         <th>${ticket.id}</th>
@@ -193,8 +200,8 @@ document.getElementById("trackTickets").addEventListener("click", async() => {
 
 document.getElementById("trackTicketById-btn").addEventListener("click", async() => {
     const trackTicketById = document.getElementById("trackTicketById")
-    await fetch(`${url}ticket/id/${trackTicketById.value}`, {
-    }).then(response => response.json()).then(ticket =>
+    await fetch(`${url}ticket/id/${trackTicketById.value}`, {headers: {'Authorization': `${token.value}`}})
+    .then(response => response.json()).then(ticket =>
     document.getElementById("tableTicketByid").innerHTML = ticket.reduce((accumulator, ticket) => {
         accumulator += `<tr>
                         <th>${ticket.id}</th>
@@ -219,7 +226,7 @@ document.getElementById("updateUser").addEventListener("click", async() => {
     }
     await fetch(`${url}user/${putUserId.value}`, {
         method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'Authorization': `${token.value}`},
         body: JSON.stringify(userData)
     })
 })
@@ -246,7 +253,7 @@ document.getElementById("updateEvent").addEventListener("click", async() => {
     }
     await fetch(`${url}event/${updateEventId.value}`, {
         method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'Authorization': `${token.value}`},
         body: JSON.stringify(eventData)
     })
 })
@@ -259,7 +266,7 @@ document.getElementById("updatedTicket").addEventListener("click", async() => {
     }
     await fetch(`${url}ticket/id/${getId.value}`, {
         method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'Authorization': `${token.value}`},
         body: JSON.stringify(ticketData)
     })
 })
@@ -269,20 +276,23 @@ document.getElementById("updatedTicket").addEventListener("click", async() => {
 document.getElementById("deleteUser").addEventListener("click", async() => {
     const deleteUserId = document.getElementById("deleteUserId")
     await fetch(`${url}user/${deleteUserId.value}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {'Authorization': `${token.value}`}
     })
 })
 
 document.getElementById("deleteEvent").addEventListener("click", async() => {
     const deleteEventId = document.getElementById("deleteEventId")
     await fetch(`${url}event/${deleteEventId.value}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {'Authorization': `${token.value}`}
     })
 })
 
 document.getElementById("deleteTicket").addEventListener("click", async() => {
     const deleteTicketId = document.getElementById("deleteTicketId")
     await fetch(`${url}ticket/id/${deleteTicketId.value}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {'Authorization': `${token.value}`}
     })
 })
