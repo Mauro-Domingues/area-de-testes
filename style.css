@@ -11,7 +11,7 @@ body {
     margin-bottom: 50px;
 }
 
-h1{
+h1, h2{
     text-shadow: 1px 1px 0 #000;
 }
 
@@ -35,10 +35,6 @@ form {
     box-shadow: 2px 2px 5px #000;
 }
 
-form h1{
-    text-shadow: 1px 1px 0 #a0d;
-}
-
 #hidden {
     display: none;
     position: fixed;
@@ -56,6 +52,7 @@ form h1 {
     grid-column-start: 1;
     grid-column-end: 3;
     text-align: center;
+    text-shadow: 1px 1px 0 #a0d;
 }
 
 button {
