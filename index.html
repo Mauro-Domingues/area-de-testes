@@ -22,10 +22,9 @@
             <option value="https://teste-backend-node.herokuapp.com/" selected>Usar a API hospedada</option>
         </select>
     </div>
-    <h4>O banco de dados está atualmente online em <a
-            href="https://www.db4free.net/phpMyAdmin/">db4free.net/report_ticket_db</a>
-        <br>mas também funciona localmente, porém é necessário abrir o mysql 8.0 e digitar os seguintes <a
-            href="./mysql.txt" type="application/txt"> comandos</a>
+    <h4>O banco de dados está atualmente online em <a href="https://www.db4free.net/phpMyAdmin/">db4free.net/report_ticket_db</a><br>
+        mas também funciona localmente, porém é necessário abrir o mysql 8.0 e inserir o<a href="./sql/Dump20221002.sql"> arquivo </a><br>
+        ou digitar o seguinte <a href="./sql/sql.txt" type="application/txt"> comando</a>.
     </h4>
     <hr>
     <h1 style="color: #a0d;">Autenticar usuário</h1>
@@ -37,7 +36,7 @@
         <label for="passwordLogin">Senha: </label>
         <input type="text" id="passwordLogin" name="passwordLogin" value="12345" placeholder="Insira a senha" required>
         <button type="button" id="authUser">Enviar</button>
-        <label for="token">Seu token é:</label>
+        <label for="token">Seu token é:<br>(deixe ele aqui)</label>
         <textarea id="token" name="token" placeholder="token de autenticação" rows="6"></textarea>
     </form>
     <hr>
