@@ -225,6 +225,7 @@ document.getElementById("updateUser").addEventListener("click", async() => {
 })
 
 document.getElementById("updateEvent").addEventListener("click", async() => {
+    const updateEventId = document.getElementById("updateEventId")
     const updateEventName = document.getElementById("updateEventName")
     const updateDescription = document.getElementById("updateDescription")
     const updateImage = document.getElementById("updateImage")
@@ -243,7 +244,7 @@ document.getElementById("updateEvent").addEventListener("click", async() => {
         important_info: updateImportant_info.value,
         map: updateMap.value
     }
-    await fetch(`${url}event`, {
+    await fetch(`${url}event/${updateEventId.value}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(eventData)

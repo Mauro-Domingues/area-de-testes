@@ -1,7 +1,13 @@
+html{
+    display: flex;
+    justify-content: center;
+}
+
 body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 1200px;
     margin-bottom: 50px;
 }
 hr{
