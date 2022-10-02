@@ -1,3 +1,3 @@
 ﻿# Area-de-testes
 
-deploy: 
+deploy: https://mauro-domingues.github.io/area-de-testes/
