@@ -11,7 +11,7 @@
 
 <body>
     <h1 style="color: #a0d;">Área de testes</h1>
-    <h3>Seja bem vindo(a) a área de teste</h3>
+    <h3>Seja bem vindo(a) à área de teste</h3>
     <h4>A api está atualmente online em <a href="https://teste-backend-node.herokuapp.com/">teste-backend-node.herokuapp.com</a><br>
         mas tambem funciona localmente, basta abrir o console na pasta da API e digitar "npm start".
     </h4>
@@ -38,9 +38,9 @@
             required>
         <label for="passwordLogin">Senha: </label>
         <input type="text" id="passwordLogin" name="passwordLogin" value="12345" placeholder="Insira a senha" required>
-        <button type="button" id="authUser">Enviar</button>
+        <button type="button" id="authUser">Autenticar</button>
         <label for="token">Seu token é:<br>(deixe ele aqui)</label>
-        <textarea id="token" name="token" placeholder="token de autenticação" rows="6"></textarea>
+        <textarea id="token" name="token" placeholder="Token de autenticação" rows="6"></textarea>
     </form>
     <hr>
     <h1 style="color: #a0d;">Criar elementos</h1>
@@ -50,7 +50,7 @@
         <input type="email" id="email" name="email" placeholder="Insira o email" required>
         <label for="password">Senha: </label>
         <input type="text" id="password" name="password" placeholder="Insira a senha" required>
-        <button type="button" id="sendUser">Enviar</button>
+        <button type="button" id="sendUser">Cadastrar</button>
     </form>
     <form id="form">
         <h1>Criar Evento</h1>
@@ -71,12 +71,12 @@
         <textarea id="important_info" name="important_info" placeholder="Informações importantes" required></textarea>
         <label for="map">Mapa: </label>
         <input type="text" id="map" name="map" value="Mapa" placeholder="Não disponível ainda, insira qualquer coisa">
-        <button type="button" id="sendEvent">Enviar</button>
+        <button type="button" id="sendEvent">Criar evento</button>
     </form>
     <form id="form">
         <h1>Gerar ingresso</h1>
-        <label for="id">id: </label>
-        <input type="text" id="id" name="id" placeholder="id do evento" required>
+        <label for="id">Id: </label>
+        <input type="text" id="id" name="id" placeholder="Id do evento" required>
         <label for="code">Código: </label>
         <textarea id="code" name="code" placeholder="Insira o código do bilhete" required></textarea>
         <label for="options">Área</label>
@@ -85,14 +85,14 @@
             <option>Vip</option>
             <option>Camarote</option>
         </select>
-        <button type="button" id="sendTicket">Enviar</button>
+        <button type="button" id="sendTicket">Gerar ingresso</button>
     </form>
     <hr>
     <h1 style="color: #a0d;">Buscar elementos</h1>
     <h2 style="color: #a0d;">Usuarios</h2>
     <form id="form">
         <h1>Buscar todos os usuarios</h1>
-        <button type="button" id="trackUsers">Enviar</button>
+        <button type="button" id="trackUsers">Buscar usuários</button>
     </form>
     <table border="1">
         <thead>
@@ -107,9 +107,9 @@
     </table>
     <form id="form">
         <h1>Buscar usuario pelo id</h1>
-        <label for="trackUserId">id do usuario: </label>
-        <input type="text" id="trackUserId" name="trackUserId" placeholder="id do usuario" required>
-        <button type="button" id="trackUserById">Enviar</button>
+        <label for="trackUserId">Id do usuario: </label>
+        <input type="text" id="trackUserId" name="trackUserId" placeholder="Id do usuario" required>
+        <button type="button" id="trackUserById">Buscar usuários</button>
     </form>
     <table border="1">
         <thead>
@@ -126,7 +126,7 @@
     <h2 style="color: #a0d;">Eventos</h2>
     <form id="form">
         <h1>Buscar todos os eventos</h1>
-        <button type="button" id="trackEvents">Enviar</button>
+        <button type="button" id="trackEvents">Buscar eventos</button>
     </form>
     <table border="1">
         <thead>
@@ -147,9 +147,9 @@
     </table>
     <form id="form">
         <h1>Buscar evento pelo id</h1>
-        <label for="trackEventId">id do evento: </label>
-        <input type="text" id="trackEventId" name="trackEventId" placeholder="id do evento" required>
-        <button type="button" id="trackEvent">Enviar</button>
+        <label for="trackEventId">Id do evento: </label>
+        <input type="text" id="trackEventId" name="trackEventId" placeholder="Id do evento" required>
+        <button type="button" id="trackEvent">Buscar evento</button>
     </form>
     <table border="1">
         <thead>
@@ -172,7 +172,7 @@
     <h2 style="color: #a0d;">Ingressos</h2>
     <form id="form">
         <h1>Buscar todos os ingressos</h1>
-        <button type="button" id="trackAllTickets">Enviar</button>
+        <button type="button" id="trackAllTickets">Buscar ingressos</button>
     </form>
     <table border="1">
         <thead>
@@ -191,9 +191,9 @@
     </table>
     <form id="form">
         <h1>Buscar ingressos de algum evento</h1>
-        <label for="trackTicketId">id do evento: </label>
-        <input type="text" id="trackTicketId" name="trackTicketId" placeholder="id do evento" required>
-        <button type="button" id="trackTickets">Enviar</button>
+        <label for="trackTicketId">Id do evento: </label>
+        <input type="text" id="trackTicketId" name="trackTicketId" placeholder="Id do evento" required>
+        <button type="button" id="trackTickets">Buscar ingressos</button>
     </form>
     <table border="1">
         <thead>
@@ -211,10 +211,10 @@
         </tbody>
     </table>
     <form id="form">
-        <h1>Buscar ingressos pelo id</h1>
-        <label for="trackTicketId">id do Ingresso: </label>
-        <input type="text" id="trackTicketById" name="trackTicketById" placeholder="id do ingresso" required>
-        <button type="button" id="trackTicketById-btn">Enviar</button>
+        <h1>Buscar ingresso pelo id</h1>
+        <label for="trackTicketId">Id do Ingresso: </label>
+        <input type="text" id="trackTicketById" name="trackTicketById" placeholder="Id do ingresso" required>
+        <button type="button" id="trackTicketById-btn">Buscar ingresso</button>
     </form>
     <table border="1">
         <thead>
@@ -236,17 +236,17 @@
     <h2 style="color: #a0d;">Usuarios</h2>
     <form id="form">
         <h1>Esqueceu a senha?</h1>
-        <label for="putUserId">insira o seu id: </label>
-        <input type="text" id="putUserId" name="putUserId" placeholder="id do usuário" required>
-        <label for="newPass">nova senha: </label>
-        <input type="text" id="newPass" name="newPass" placeholder="insira a nova senha" required>
-        <button type="button" id="updateUser">Enviar</button>
+        <label for="putUserId">Insira o seu id: </label>
+        <input type="text" id="putUserId" name="putUserId" placeholder="Id do usuário" required>
+        <label for="newPass">Nova senha: </label>
+        <input type="text" id="newPass" name="newPass" placeholder="Insira a nova senha" required>
+        <button type="button" id="updateUser">Alterar senha</button>
     </form>
     <h2 style="color: #a0d;">Eventos</h2>
     <form id="form">
         <h1>Editar Evento</h1>
         <label for="updateEventId">Id: </label>
-        <input type="text" id="updateEventId" name="updateEventId" placeholder="id do evento" required>
+        <input type="text" id="updateEventId" name="updateEventId" placeholder="Id do evento" required>
         <label for="updateEventName">Título: </label>
         <input type="text" id="updateEventName" name="updateEventName" placeholder="Nome do evento" required>
         <label for="updateDescription">Descrição: </label>
@@ -266,43 +266,43 @@
         <label for="updateMap">Mapa: </label>
         <input type="text" id="updateMap" name="updateMap" placeholder="Não disponível ainda, insira qualquer coisa"
             required>
-        <button type="button" id="updateEvent">Enviar</button>
+        <button type="button" id="updateEvent">Editar evento</button>
     </form>
     <h2 style="color: #a0d;">Ingressos</h2>
     <form id="form">
         <h1>Atualizar ingresso</h1>
-        <label for="getId">id do ingresso: </label>
-        <input type="text" id="getId" name="getId" placeholder="id do ingresso" required>
+        <label for="getId">Id do ingresso: </label>
+        <input type="text" id="getId" name="getId" placeholder="Id do ingresso" required>
         <label for="options">Área</label>
         <select name="newArea" id="newArea">
             <option selected>Pista</option>
             <option>Vip</option>
             <option>Camarote</option>
         </select>
-        <button type="button" id="updatedTicket">Enviar</button>
+        <button type="button" id="updatedTicket">Alterar área</button>
     </form>
     <hr>
     <h1 style="color: #a0d;">Deletar elementos</h1>
     <h2 style="color: #a0d;">Usuarios</h2>
     <form id="form">
         <h1>Deletar usuario</h1>
-        <label for="deleteUserId">insira o seu id: </label>
-        <input type="text" id="deleteUserId" name="deleteUserId" placeholder="id do usuário" required>
-        <button type="button" id="deleteUser">Enviar</button>
+        <label for="deleteUserId">Insira o seu id: </label>
+        <input type="text" id="deleteUserId" name="deleteUserId" placeholder="Id do usuário" required>
+        <button type="button" id="deleteUser">Deletar usuário</button>
     </form>
     <h2 style="color: #a0d;">Eventos</h2>
     <form id="form">
         <h1>Deletar Evento</h1>
-        <label for="deleteEventId">id do evento: </label>
-        <input type="text" id="deleteEventId" name="deleteEventId" placeholder="id do evento" required>
-        <button type="button" id="deleteEvent">Enviar</button>
+        <label for="deleteEventId">Id do evento: </label>
+        <input type="text" id="deleteEventId" name="deleteEventId" placeholder="Id do evento" required>
+        <button type="button" id="deleteEvent">Deletar evento</button>
     </form>
     <h2 style="color: #a0d;">Ingressos</h2>
     <form id="form">
         <h1>Deletar ingresso</h1>
-        <label for="deleteTicketId">id do ingresso: </label>
-        <input type="text" id="deleteTicketId" name="deleteTicketId" placeholder="id do ingresso" required>
-        <button type="button" id="deleteTicket">Enviar</button>
+        <label for="deleteTicketId">Id do ingresso: </label>
+        <input type="text" id="deleteTicketId" name="deleteTicketId" placeholder="Id do ingresso" required>
+        <button type="button" id="deleteTicket">Deletar ingresso</button>
     </form>
     <script src="./script.js"></script>
 </body>
