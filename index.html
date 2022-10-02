@@ -59,8 +59,9 @@
         <label for="description">Descrição: </label>
         <textarea id="description" name="description" placeholder="Descreva o evento" required></textarea>
         <label for="image">Imagem: </label>
-        <input type="text" id="image" name="image" value="Imagem.png"
-            placeholder="Não disponível ainda, insira qualquer coisa">
+        <span class="selection fake-input">
+            <input type="file" id="image" class="none" name="image" accept="image/*" required>
+        </span>
         <label for="data">Data: </label>
         <input type="date" id="data" name="data" placeholder="Insira a data" required>
         <label for="place">Endereço: </label>
@@ -70,7 +71,9 @@
         <label for="important_info">Informações importantes: </label>
         <textarea id="important_info" name="important_info" placeholder="Informações importantes" required></textarea>
         <label for="map">Mapa: </label>
-        <input type="text" id="map" name="map" value="Mapa" placeholder="Não disponível ainda, insira qualquer coisa">
+        <span class="selection fake-input">
+            <input type="file" id="map" class="none" name="map" accept="image/*" required>
+        </span>
         <button type="button" id="sendEvent">Criar evento</button>
     </form>
     <form id="form">
@@ -252,8 +255,9 @@
         <label for="updateDescription">Descrição: </label>
         <textarea id="updateDescription" name="updateDescription" placeholder="Descreva o evento" required></textarea>
         <label for="updateImage">Imagem: </label>
-        <input type="text" id="updateImage" name="updateImage" placeholder="Não disponível ainda, insira qualquer coisa"
-            required>
+        <span class="selection fake-input">
+            <input type="file" id="updateImage" class="none" name="updateImage" accept="image/*" required>
+        </span>
         <label for="updateData">Data: </label>
         <input type="date" id="updateData" name="updateData">
         <label for="updatePlace">Endereço: </label>
@@ -264,8 +268,9 @@
         <textarea id="updateImportant_info" name="updateImportant_info" placeholder="Informações importantes"
             required></textarea>
         <label for="updateMap">Mapa: </label>
-        <input type="text" id="updateMap" name="updateMap" placeholder="Não disponível ainda, insira qualquer coisa"
-            required>
+        <span class="selection fake-input">
+            <input type="fie" id="updateMap" class="none" name="updateMap" accept="image/*" required>
+        </span>
         <button type="button" id="updateEvent">Editar evento</button>
     </form>
     <h2 style="color: #a0d;">Ingressos</h2>

@@ -65,6 +65,23 @@ button {
     margin-left: 30%;
 }
 
+span.fake-input {
+    z-index: 1;
+    border-radius: 2.5px;
+    border: 0.4px solid rgb(118, 118, 118);
+    background-image: url(./img/insert_image.png);
+    background-position: 2px center;
+    background-size: 140px;
+    background-repeat: no-repeat;
+}
+
+input.none {
+    opacity: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+
 table {
     font-weight: bolder;
     text-align: center;
