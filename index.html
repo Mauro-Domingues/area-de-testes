@@ -21,6 +21,7 @@
             <option value="http://localhost:3000/">Usar API localmente</option>
             <option value="https://teste-backend-node.herokuapp.com/" selected>Usar a API hospedada</option>
         </select>
+        <p class="hidden-alert" style="color: #f00;">É necessário realizar o "npm start" para funcionar*</p>
     </div>
     <h4>O banco de dados está atualmente online em <a href="https://www.db4free.net/phpMyAdmin/">db4free.net/report_ticket_db</a><br>
         mas também funciona localmente, porém é necessário abrir o mysql 8.0 e inserir o<a href="./sql/Dump20221002.sql"> arquivo </a><br>
@@ -71,8 +72,7 @@
     <hr>
     <h1 style="color: #a0d;">A fazer</h1>
     <ul class="form">
-        <li>Criptografia da senha e validação do usuário com o bcrypt (Criptografia e validação ok, falta conseguir retornar para fora do escopo)</li>
-        <li>Permitir receber imagens no parâmetro (já recebe, mas precisa do tratamendo para retornar ao usuário)</li>
+        <li>Permitir receber imagens (até recebe com um objeto blob, mas precisa do tratamendo para retornar ao usuário)</li>
         <li>Setar dados como valor, quantia de lotes, etc dinamicamente ao invés de manualmente no código fonte da API</li>
         <li>retorno das requisições {“message”: “”,“code”: 200,“message_code”: “código usado para translate”“data”: {...}}</li>
         <li>Fazer o ingresso retornar o qr_code e bar_code (A ideia é gerar ambos a partir do "código" inserido ao gerar o ingresso)</li>

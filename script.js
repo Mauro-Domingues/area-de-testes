@@ -2,10 +2,14 @@ let url = "https://teste-backend-node.herokuapp.com/"
 const setUrl = document.getElementById("url")
 const token = document.getElementById("token")  
 const hidden = document.getElementById("hidden")  
+const hiddenAlert = document.querySelector(".hidden-alert")  
 let message = document.getElementById("message")
 
 setUrl.addEventListener("change", () => {
     url = setUrl.value
+    if(url === "https://teste-backend-node.herokuapp.com/"){
+        hiddenAlert.style.display = "none"
+    }else{hiddenAlert.style.display = "block"}
 })
 
 function pop(){
@@ -110,7 +114,7 @@ document.getElementById("trackUsers").addEventListener("click", async() => {
         accumulator += `<tr>
                         <td>${user.id}</td>
                         <td>${user.email}</td>
-                        <td>${user.password}</td>
+                        <td><details><summary>Exibir senha</summary>${user.password}</details></td>
                         </tr>`
         return accumulator
     },""))
@@ -126,7 +130,7 @@ document.getElementById("trackUserById").addEventListener("click", async() => {
         accumulator += `<tr>
                         <td>${user.id}</td>
                         <td>${user.email}</td>
-                        <td>${user.password}</td>
+                        <td><details><summary>Exibir senha</summary>${user.password}</details></td>
                         </tr>`
         return accumulator
     },""))

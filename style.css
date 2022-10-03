@@ -45,6 +45,10 @@ form {
     z-index: 3;
 }
 
+.hidden-alert{
+    display: none;
+}
+
 #message {
     color: #a0d;
 }
