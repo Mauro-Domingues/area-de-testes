@@ -80,6 +80,12 @@ input.none {
     height: 100%;
 }
 
+li{
+    margin: 10px 0;
+    text-align: left;
+    font-weight: bolder;
+}
+
 table {
     font-weight: bolder;
     text-align: center;
