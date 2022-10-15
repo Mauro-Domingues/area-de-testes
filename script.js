@@ -142,11 +142,10 @@ document.getElementById("trackEvents").addEventListener("click", async() => {
     await fetch(`${url}event`, {headers: {'Authorization': `${token.value}`}})
     .then(response => response.json()).then(event =>
     document.getElementById("allEvents").innerHTML = event.reduce((accumulator, event) => {
-        const data = new Date(event.data).toLocaleDateString()
         accumulator += `<tr>
                         <td>${event.id}</td>
                         <td>${event.name}</td>
-                        <td>${data}</td>
+                        <td>${new Date(event.data).toLocaleDateString()}</td>
                         <td>${event.description}</td>
                         <td>${event.image}</td>
                         <td>${event.place}</td>
@@ -165,16 +164,10 @@ document.getElementById("trackEvent").addEventListener("click", async() => {
     await fetch(`${url}event/${trackEventId.value}`, {headers: {'Authorization': `${token.value}`}})
     .then(response => response.json()).then(event =>
     document.getElementById("eventById").innerHTML = event.reduce((accumulator, event) => {
-        const data = new Date(Date.parse(event.data))
-        let day = data.getDate()
-        let month = data.getMonth()
-        const year = data.getFullYear()
-        day < 10 ? day = `0${day}` : false	
-        month < 10 ? month = `0${month}` : false
         accumulator += `<tr>
                         <td>${event.id}</td>
                         <td>${event.name}</td>
-                        <td>${day}/${month}/${year}</td>
+                        <td>${new Date(event.data).toLocaleDateString()}</td>
                         <td>${event.description}</td>
                         <td>${event.image}</td>
                         <td>${event.place}</td>
